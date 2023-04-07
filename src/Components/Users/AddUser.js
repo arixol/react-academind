@@ -3,6 +3,7 @@ import React, { useState, useRef } from 'react';
 import Card from '../UI/Card';
 import Button from '../UI/Button';
 import ErrorModal from '../UI/ErrorModal';
+import Wrapper from '../Helpers/Wrapper';
 import classes from './AddUser.module.css';
 
 const AddUser = (props) => {
@@ -46,7 +47,7 @@ const AddUser = (props) => {
     // setEnteredAge(event.target.value);
   };
 
-  const clearErrorHandler = (event) => {
+  const errorHandler = (event) => {
     setError(null);
   };
 
@@ -56,12 +57,12 @@ const AddUser = (props) => {
   //         back into the input, we're using the regular DOM API to set the value.
   //     - Controlled Component: Manage state and update state on every keystroke and feed state back into input with value prop.
   return (
-    <React.Fragment>
-      {error && error.hasOwnProperty('title') && (
+    <Wrapper>
+      {error && (
         <ErrorModal
           title={error.title}
           message={error.message}
-          onClick={clearErrorHandler}
+          onConfirm={errorHandler}
         />
       )}
       <Card className={classes.input}>
@@ -85,7 +86,7 @@ const AddUser = (props) => {
           <Button type="submit">Add User</Button>
         </form>
       </Card>
-    </React.Fragment>
+    </Wrapper>
   );
 };
 
