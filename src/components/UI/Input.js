@@ -2,6 +2,8 @@ import React from 'react';
 
 import classes from './Input.module.css';
 
+// Wrap in forwardRef to use refs with custom component
+// Forwards ref set on <Input> comopnent used in MealItemForm
 const Input = React.forwardRef((props, ref) => {
   return (
     <div className={classes.input}>
