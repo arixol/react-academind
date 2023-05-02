@@ -1,27 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import AddUser from './components/Users/AddUser';
-import UsersList from './components/Users/UsersList';
+import './App.css';
 
 function App() {
-  const [usersList, setUsersList] = useState([]);
-
-  const addUserHandler = (userName, userAge) => {
-    // When state update relies on the previous state, use function form so
-    // the function automatically gets the previous state as an arg
-    setUsersList((prevUsersList) => {
-      return [
-        ...prevUsersList,
-        { id: Math.random().toString(), name: userName, age: userAge },
-      ];
-    });
-  };
-
   return (
-    <React.Fragment>
-      <AddUser onAddUser={addUserHandler} />
-      <UsersList users={usersList} />
-    </React.Fragment>
+    <div className="app">
+      <h1>Hi there!</h1>
+    </div>
   );
 }
 
